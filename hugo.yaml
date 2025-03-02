@@ -1,0 +1,39 @@
+baseURL: https://transguide.jp/
+languageCode: en-us
+title: transguide.jp
+theme: hextra
+
+menu:
+  main:
+    - identifier: home
+      name: Home
+      pageRef: /
+      weight: 1
+    - identifier: resources
+      name: Resources
+      pageRef: /docs
+      weight: 2
+    - identifier: blog
+      name: Blog
+      pageRef: /blog
+      weight: 3
+    - name: Search
+      weight: 4
+      params:
+        type: search
+    - identifier: contact
+      name: Contact
+      url: mailto:transguidejapan@gmail.com 
+      weight: 5
+      params:
+        icon: mail
+
+params:
+  navbar:
+    displayTitle: true
+    displayLogo: true
+    logo:
+      path: images/logo.svg
+      link: /
+      width: 40
+      height: 40
