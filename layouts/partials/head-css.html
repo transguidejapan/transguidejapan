@@ -1,0 +1,43 @@
+  {{- $index := resources.Get "/css/index.css" }}
+  <link href="{{ $index.RelPermalink }}" rel="stylesheet" />
+  
+{{- if and (not hugo.IsProduction) (eq hugo.Environment "theme") }}
+  {{- $styles := resources.Get "css/styles.css" }}
+  {{- $styles = $styles | postCSS (dict "inlineImports" true) }}
+  <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
+{{- else }}
+  {{- $styles := resources.Get "css/compiled/main.css" -}}
+
+  {{- if hugo.IsProduction }}
+    {{- $styles = $styles | minify | fingerprint }}
+    <link rel="preload" href="{{ $styles.RelPermalink }}" as="style" integrity="{{ $styles.Data.Integrity }}" />
+    <link href="{{ $styles.RelPermalink }}" rel="stylesheet" integrity="{{ $styles.Data.Integrity }}" />
+  {{- else }}
+    <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
+  {{- end }}
+{{- end }}
+
+
+<!-- Custom CSS -->
+{{- $custom := resources.Get "css/custom.css" }}
+{{- if hugo.IsProduction -}}
+  {{- $custom = $custom | minify | fingerprint }}
+  <link href="{{ $custom.RelPermalink }}" rel="stylesheet" integrity="{{ $custom.Data.Integrity }}" />
+{{- else }}
+  <link href="{{ $custom.RelPermalink }}" rel="stylesheet" />
+{{- end }}
+
+{{ with (templates.Defer (dict "key" "global")) }}
+  {{ with resources.Get "/assets/css/index.css" }}
+    {{ $opts := dict "minify" (not hugo.IsDevelopment) }}
+    {{ with . | css.TailwindCSS $opts }}
+      {{ if hugo.IsDevelopment }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}" >
+      {{ else }}
+        {{ with . | fingerprint }}
+          <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"  >
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}

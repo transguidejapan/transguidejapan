@@ -1,3 +1,5 @@
 themes/hextra
-/themes
 .DS_Store
+/node_modules
+/public
+.nvim.lua
