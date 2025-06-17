@@ -3,3 +3,4 @@ themes/hextra
 /node_modules
 /public
 .nvim.lua
+.vim

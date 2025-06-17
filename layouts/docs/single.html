@@ -15,7 +15,7 @@
         <div class="hx-mt-4 hx-flex hx-gap-4">
           {{if .Params.tags}}
             {{range .Params.tags}}
-              <span class="hx-text-2xl hx-font-semibold">{{.}}</span>
+              <a href="/tags/{{ . }}" class="hx-text-2xl hx-font-semibold " style="color: black;">#{{.}}</a>
             {{end}}
           {{end}}
         </div>
