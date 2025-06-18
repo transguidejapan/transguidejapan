@@ -52,3 +52,11 @@ module:
   - disableWatch: true
     source: hugo_stats.json
     target: assets/notwatching/hugo_stats.json
+
+languages:
+  en:
+    weight: 1
+    languageName: English
+  ja:
+    weight: 1
+    languageName: 日本語

@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div class='hx-mx-auto hx-flex {{ partial "utils/page-width" . }}'>
+  {{ partial "sidebar.html" (dict "context" .) }}
+  {{ partial "toc.html" . }}
+  <article
+    class="hx-w-full hx-break-words hx-flex hx-min-h-[calc(100vh-var(--navbar-height))] hx-min-w-0 hx-justify-center hx-pb-8 hx-pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+    <main class="hx-w-full hx-min-w-0 hx-max-w-6xl hx-px-6 hx-pt-4 md:hx-px-12">
+      {{ partial "breadcrumb.html" . }}
+      <div class="content" where>
+        <h1>{{.Title}}</h1>
+        <ul class="hx-flex-col hx-flex hx-gap-2 ">
+          {{range where .Pages "Type" "docs"}}
+          <a class="hx-flex hx-gap-4 hx-justify-start not-prose hover:hx-bg-primary-50" href="{{.Permalink}}">
+            <img class="  not-prose hx-mr-2" src="/images/icon.png">
+            <div>
+              <h2 class="not-prose hx-text-2xl">{{.Title}}</h2>
+              <span>{{.Description}}</span>
+              <ul class="not-prose hx-flex hx-gap-4">
+                <li class="hx-bg-gray-100 hx-p-1 hx-rounded-lg hx-ml-2 hx-mr-2 hx-border">en</li>
+                {{ range .Translations }}
+                <li class="hx-bg-gray-100 hx-p-1 hx-rounded-lg hx-ml-2 hx-mr-2 hx-border ">
+                  {{.LanguageName }}
+                </li>
+                {{end}}
+              </ul>
+            </div>
+          </a>
+          {{end}}
+        </ul>
+      </div>
+      {{ partial "components/last-updated.html" . }}
+      {{ partial "components/pager.html" . }}
+      {{ partial "components/comments.html" . }}
+    </main>
+  </article>
+</div>
+{{ end }}
