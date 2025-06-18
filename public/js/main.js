@@ -55,53 +55,24 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   const menu = document.querySelector('.hamburger-menu');
-  const overlay = document.querySelector('.mobile-menu-overlay');
   const sidebarContainer = document.querySelector('.sidebar-container');
-
-  // Initialize the overlay
-  const overlayClasses = ['hx-fixed', 'hx-inset-0', 'hx-z-10', 'hx-bg-black/80', 'dark:hx-bg-black/60'];
-  overlay.classList.add('hx-bg-transparent');
-  overlay.classList.remove("hx-hidden", ...overlayClasses);
 
   function toggleMenu() {
     // Toggle the hamburger menu
     menu.querySelector('svg').classList.toggle('open');
 
     // When the menu is open, we want to show the navigation sidebar
-    sidebarContainer.classList.toggle('max-md:[transform:translate3d(0,-100%,0)]');
-    sidebarContainer.classList.toggle('max-md:[transform:translate3d(0,0,0)]');
+    sidebarContainer.classList.toggle('hx:max-md:[transform:translate3d(0,-100%,0)]');
+    sidebarContainer.classList.toggle('hx:max-md:[transform:translate3d(0,0,0)]');
 
     // When the menu is open, we want to prevent the body from scrolling
-    document.body.classList.toggle('hx-overflow-hidden');
-    document.body.classList.toggle('md:hx-overflow-auto');
-  }
-
-  function hideOverlay() {
-    // Hide the overlay
-    overlay.classList.remove(...overlayClasses);
-    overlay.classList.add('hx-bg-transparent');
+    document.body.classList.toggle('hx:overflow-hidden');
+    document.body.classList.toggle('hx:md:overflow-auto');
   }
 
   menu.addEventListener('click', (e) => {
     e.preventDefault();
     toggleMenu();
-
-    if (overlay.classList.contains('hx-bg-transparent')) {
-      // Show the overlay
-      overlay.classList.add(...overlayClasses);
-      overlay.classList.remove('hx-bg-transparent');
-    } else {
-      // Hide the overlay
-      hideOverlay();
-    }
-  });
-
-  overlay.addEventListener('click', (e) => {
-    e.preventDefault();
-    toggleMenu();
-
-    // Hide the overlay
-    hideOverlay();
   });
 
   // Select all anchor tags in the sidebar container
@@ -115,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Only dismiss overlay on mobile view
         if (window.innerWidth < 768) {
           toggleMenu();
-          hideOverlay();
         }
       }
     });
@@ -220,7 +190,7 @@ document.querySelectorAll('.hextra-tabs-toggle').forEach(function (button) {
       e.preventDefault();
       switcher.dataset.state = switcher.dataset.state === 'open' ? 'closed' : 'open';
       const optionsElement = switcher.nextElementSibling;
-      optionsElement.classList.toggle('hx-hidden');
+      optionsElement.classList.toggle('hx:hidden');
 
       // Calculate position of language options element
       const switcherRect = switcher.getBoundingClientRect();
@@ -236,7 +206,71 @@ document.querySelectorAll('.hextra-tabs-toggle').forEach(function (button) {
       languageSwitchers.forEach((switcher) => {
         switcher.dataset.state = 'closed';
         const optionsElement = switcher.nextElementSibling;
-        optionsElement.classList.add('hx-hidden');
+        optionsElement.classList.add('hx:hidden');
+      });
+    }
+  });
+})();
+
+;
+(function () {
+  const hiddenClass = "hx:hidden";
+  const dropdownToggles = document.querySelectorAll(".hextra-nav-menu-toggle");
+
+  dropdownToggles.forEach((toggle) => {
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      // Close all other dropdowns first
+      dropdownToggles.forEach((otherToggle) => {
+        if (otherToggle !== toggle) {
+          otherToggle.dataset.state = "closed";
+          const otherMenuItems = otherToggle.nextElementSibling;
+          otherMenuItems.classList.add(hiddenClass);
+        }
+      });
+
+      // Toggle current dropdown
+      const isOpen = toggle.dataset.state === "open";
+      toggle.dataset.state = isOpen ? "closed" : "open";
+      const menuItemsElement = toggle.nextElementSibling;
+
+      if (!isOpen) {
+        // Position dropdown centered with toggle
+        menuItemsElement.style.position = "absolute";
+        menuItemsElement.style.top = "100%";
+        menuItemsElement.style.left = "50%";
+        menuItemsElement.style.transform = "translateX(-50%)";
+        menuItemsElement.style.zIndex = "1000";
+
+        // Show dropdown
+        menuItemsElement.classList.remove(hiddenClass);
+      } else {
+        // Hide dropdown
+        menuItemsElement.classList.add(hiddenClass);
+      }
+    });
+  });
+
+  // Dismiss dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    if (e.target.closest(".hextra-nav-menu-toggle") === null) {
+      dropdownToggles.forEach((toggle) => {
+        toggle.dataset.state = "closed";
+        const menuItemsElement = toggle.nextElementSibling;
+        menuItemsElement.classList.add(hiddenClass);
+      });
+    }
+  });
+
+  // Close dropdowns on escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      dropdownToggles.forEach((toggle) => {
+        toggle.dataset.state = "closed";
+        const menuItemsElement = toggle.nextElementSibling;
+        menuItemsElement.classList.add(hiddenClass);
       });
     }
   });
@@ -303,9 +337,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (backToTop) {
     document.addEventListener("scroll", (e) => {
       if (window.scrollY > 300) {
-        backToTop.classList.remove("hx-opacity-0");
+        backToTop.classList.remove("hx:opacity-0");
       } else {
-        backToTop.classList.add("hx-opacity-0");
+        backToTop.classList.add("hx:opacity-0");
       }
     });
   }
