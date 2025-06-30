@@ -5,7 +5,7 @@
     <description>Recent content in Articles on transguide.jp</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 02 Mar 2025 23:00:45 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 18 Jun 2025 14:03:00 +0000</lastBuildDate>
     
 	  <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,6 +14,20 @@
         
       
     
+    
+    <item>
+      <title>New article</title>
+      <link>http://localhost:1313/blog/new-article/</link>
+      <pubDate>Wed, 18 Jun 2025 14:03:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog/new-article/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Enter text here!&lt;/p&gt;
+
+      </description>
+    </item>
     
     <item>
       <title>Site Open Announcement</title>

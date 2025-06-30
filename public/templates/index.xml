@@ -1,0 +1,41 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>transguide.jp – Templates</title>
+    <link>http://localhost:1313/templates/</link>
+    <description>Recent content in Templates on transguide.jp</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="http://localhost:1313/templates/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/templates/blog-post/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/templates/blog-post/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&amp;lt;%*
+let title = await tp.system.prompt(&amp;ldquo;Enter article title&amp;hellip;&amp;rdquo;, &amp;ldquo;New article&amp;rdquo;);
+//await tp.file.rename(tp.user.to_slug(title));
+%&amp;gt;&amp;mdash;
+date: &amp;lsquo;&amp;lt;% moment(tp.file.creation_date()).toISOString() %&amp;gt;&amp;rsquo;
+draft: true
+title: &amp;lsquo;&amp;lt;% title %&amp;gt;&amp;rsquo;
+type: blog
+&amp;mdash;&amp;lt;%* app.workspace.activeLeaf.view.editor?.focus(); %&amp;gt;
+Enter text here!&amp;lt;% tp.file.cursor() %&amp;gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -15,6 +15,20 @@
     
     
     <item>
+      <title>New article</title>
+      <link>http://localhost:1313/blog/new-article/</link>
+      <pubDate>Wed, 18 Jun 2025 14:03:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog/new-article/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Enter text here!&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Site Open Announcement</title>
       <link>http://localhost:1313/blog/first-post/</link>
       <pubDate>Sun, 02 Mar 2025 23:00:45 +0900</pubDate>
