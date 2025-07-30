@@ -3,34 +3,45 @@
   {{ partial "sidebar.html" (dict "context" .) }}
   {{ partial "toc.html" . }}
   <article
-    class="hx-w-full hx-break-words hx-flex hx-min-h-[calc(100vh-var(--navbar-height))] hx-min-w-0 hx-justify-center hx-pb-8 hx-pr-[calc(env(safe-area-inset-right)-1.5rem)] hx-ml-4 hx-mr-4">
+    class="hx-w-full hx-break-words hx-flex hx-min-h-[calc(100vh-var(--navbar-height))] hx-min-w-0 hx-justify-center hx-pb-8 hx-pr-[calc(env(safe-area-inset-right)-1.5rem)]  hx-mr-4">
     <main class="hx-w-full hx-min-w-0    ">
-      <!-- {{ partial "breadcrumb.html" . }} -->
-      <div class="content">
-        {{ if .Title }}
-        <h1 class="hx-font-bold hx-text-xl " style="font-size: 4rem;">{{ .Title }}</h1>
-        {{ end }}
+      {{ partial "breadcrumb.html" . }}
+      <div class="max-h-4">
+        <ul class="hx-flex hx-gap-4 ">
+          {{ range .Page.Translations }}
+          <a href="{{.Permalink}}">
+            {{partial "languageCard.html" (dict "context" . "lang" .Language )}}
+          </a>
+          {{end }}
+          <ul>
+      </div>
+      {{ if .Title }}
+      <h1 class="hx-font-bold hx-text-xl " style="font-size: 4rem;">{{ .Title }}</h1>
+      {{ end }}
 
-        <!-- tags -->
-        <div class="hx-mt-4 hx-flex hx-gap-4">
-          {{if .Params.tags}}
-            {{range .Params.tags}}
-              <a href="/tags/{{ . }}" class="hx-text-2xl hx-font-semibold " style="color: black;">#{{.}}</a>
-            {{end}}
-          {{end}}
-        </div>
-
-        {{if .Description}}
-        <h3>
-          {{.Description}}
-        </h3>
+      <!-- tags -->
+      <div class="hx-mt-4 hx-flex hx-gap-4 hx-mb-8">
+        {{if .Params.tags}}
+        {{range .Params.tags}}
+        <a href="/tags/{{ . }}" class="hx-text-2xl hx-font-semibold " style="color: black;">#{{.}}</a>
         {{end}}
+        {{end}}
+      </div>
 
+      {{if .Description}}
+      <h3 class="hx-text-2xl">
+        {{.Description}}
+      </h3>
+      {{end}}
+
+      <div class="hx-text-2xl hx-flex-col hx-flex hx-gap-4">
         {{ .Content }}
       </div>
-      {{ partial "components/last-updated.html" . }} {{ partial
-      "components/pager.html" . }} {{ partial "components/comments.html" . }}
-    </main>
-  </article>
+</div>
+{{ partial "components/last-updated.html" . }}
+{{ partial "components/pager.html" . }}
+{{ partial "components/comments.html" . }}
+</main>
+</article>
 </div>
 {{ end }}

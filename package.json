@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.10",
+    "@tailwindcss/vite": "^4.1.10",
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.0.7",
+    "postcss": "^8.5.6",
+    "postcss-cssnext": "^3.1.1",
+    "postcss-import": "^16.1.1",
+    "postcss-nested": "^7.0.2",
+    "tailwindcss": "^4.1.10"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production postcss src/index.css -o dist/styles.css",
+    "dev": "postcss assets/css/import.css -o assets/css/tailwind.css -w"
+  }
+}

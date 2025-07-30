@@ -60,4 +60,8 @@
   </script>
 
   {{ partial "custom/head-end.html" . }}
+
+  
+  {{- $index := resources.Get "/js/common.js" }}
+  <script src="{{$index.RelPermalink}}" type="module"> </script>
 </head>

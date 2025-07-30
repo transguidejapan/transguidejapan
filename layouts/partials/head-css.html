@@ -1,6 +1,9 @@
   {{- $index := resources.Get "/css/index.css" }}
   <link href="{{ $index.RelPermalink }}" rel="stylesheet" />
   
+  {{- $index := resources.Get "/css/tailwind.css" }}
+  <link href="{{ $index.RelPermalink }}" rel="stylesheet" />
+  
 {{- if and (not hugo.IsProduction) (eq hugo.Environment "theme") }}
   {{- $styles := resources.Get "css/styles.css" }}
   {{- $styles = $styles | postCSS (dict "inlineImports" true) }}
@@ -27,17 +30,3 @@
   <link href="{{ $custom.RelPermalink }}" rel="stylesheet" />
 {{- end }}
 
-{{ with (templates.Defer (dict "key" "global")) }}
-  {{ with resources.Get "/assets/css/index.css" }}
-    {{ $opts := dict "minify" (not hugo.IsDevelopment) }}
-    {{ with . | css.TailwindCSS $opts }}
-      {{ if hugo.IsDevelopment }}
-        <link rel="stylesheet" href="{{ .RelPermalink }}" >
-      {{ else }}
-        {{ with . | fingerprint }}
-          <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"  >
-        {{ end }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-{{ end }}
