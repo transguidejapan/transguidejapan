@@ -1,6 +1,6 @@
 themes/hextra
 .DS_Store
-/node_modules
-/public
-.nvim.lua
-.vim
+public/
+.vscode/
+.hugo_build.lock
+.obsidian/
