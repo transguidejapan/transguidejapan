@@ -37,6 +37,13 @@ params:
       link: /
       width: 100
       height: 100
+  menu:
+    resources:
+      - Hair
+      - Nails
+      - Clothing
+      - Bars
+      - Medical Care
 languages:
   en:
     weight: 1

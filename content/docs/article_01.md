@@ -1,6 +1,6 @@
 ---
 cascade:
-  type: docs
+    type: docs
 linkTitle: Resources
 title: article_with_tags
 layout: single

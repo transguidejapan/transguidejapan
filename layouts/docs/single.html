@@ -2,6 +2,7 @@
 <div class='hx-mx-auto hx-flex {{ partial "utils/page-width" . }}'>
   {{ partial "sidebar.html" (dict "context" .) }}
   {{ partial "toc.html" . }}
+  {{ partial "menu.html" . }}
   <article
     class="hx-w-full hx-break-words hx-flex hx-min-h-[calc(100vh-var(--navbar-height))] hx-min-w-0 hx-justify-center hx-pb-8 hx-pr-[calc(env(safe-area-inset-right)-1.5rem)]  hx-mr-4">
     <main class="hx-w-full hx-min-w-0    ">
@@ -23,7 +24,7 @@
       <div class="hx-mt-4 hx-flex hx-gap-4 hx-mb-8">
         {{if .Params.tags}}
         {{range .Params.tags}}
-        <a href="/tags/{{ . }}" class="hx-text-2xl hx-font-semibold " style="color: black;">#{{.}}</a>
+        <a href="/tags/{{ . }}" class="hx-text-2xl hx-font-semibold " >#{{.}}</a>
         {{end}}
         {{end}}
       </div>

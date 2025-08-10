@@ -12,6 +12,6 @@
   },
   "scripts": {
     "build": "NODE_ENV=production postcss src/index.css -o dist/styles.css",
-    "dev": "postcss assets/css/import.css -o assets/css/tailwind.css -w"
+    "watch": "postcss assets/css/import.css -o assets/css/tailwind.css -w"
   }
 }
