@@ -1,0 +1,6 @@
+templates/ 
+scripts/ 
+.git
+.github/
+README.md
+LICENSE
