@@ -3,4 +3,4 @@
 	url = https://github.com/imfing/hextra.git
 [submodule "submodules/tgj-vault"]
 	path = submodules/tgj-vault
-	url = https://github.com/transguidejapan/tgj-vault.git
+	url = ../tgj-vault.git
