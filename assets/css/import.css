@@ -1,0 +1,12 @@
+
+@import "tailwindcss";
+
+.dark .theme-bg
+{
+  background-color: rgb(17 17 17 / var(--tw-bg-opacity)); 
+}
+
+.theme-bg
+{
+  background-color: white; 
+}

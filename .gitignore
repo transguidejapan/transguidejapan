@@ -1,6 +1,9 @@
+themes/hextra
 .DS_Store
 public/
 .vscode/
 .hugo_build.lock
 .obsidian/
+node_modules
 .frontmatter/
+content/

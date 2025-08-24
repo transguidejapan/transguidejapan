@@ -1,0 +1,16 @@
+.navbar {
+  margin-top: 2.7rem;
+  margin-bottom: 2rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.navbar {
+  &__logo {
+    width: 6rem;
+  }
+}

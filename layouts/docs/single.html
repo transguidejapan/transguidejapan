@@ -1,0 +1,48 @@
+{{ define "main" }}
+<div class='hx-mx-auto hx-flex {{ partial "utils/page-width" . }} !pr-10 !pl-10'>
+  {{ partial "sidebar.html" (dict "context" .) }}
+  {{ partial "toc.html" . }}
+  {{ partial "menu.html" . }}
+  <article
+    class="hx-w-full hx-break-words hx-flex hx-min-h-[calc(100vh-var(--navbar-height))] hx-min-w-0 hx-justify-center hx-pb-8 hx-pr-[calc(env(safe-area-inset-right)-1.5rem)]  hx-mr-4">
+    <main class="hx-w-full hx-min-w-0    ">
+      {{ partial "breadcrumb.html" . }}
+      <div  class="mt-2">
+        <ul class="hx-flex hx-gap-4 mt-5 mb-5">
+          {{ range .Page.Translations }}
+          <a href="{{.Permalink}}">
+            {{partial "languageCard.html" (dict "context" . "lang" .Language )}}
+          </a>
+          {{end }}
+          <ul>
+      </div>
+      {{ if .Title }}
+      <h1 class="hx-font-bold md:!text-4xl !text-2xl !mt-4" >{{ .Title }}</h1>
+      {{ end }}
+
+      <!-- tags -->
+      <div class="mt-3 hx-flex hx-gap-4 hx-mb-8">
+        {{if .Params.tags}}
+        {{range .Params.tags}}
+        <a href="/tags/{{ . }}" class="md:text-2xl text-xl hx-font-semibold " >#{{.}}</a>
+        {{end}}
+        {{end}}
+      </div>
+
+      {{if .Description}}
+      <h3 class="md:!text-xl !text-base">
+        {{.Description}}
+      </h3>
+      {{end}}
+
+      <div class="md:text-xl text-base hx-flex-col hx-flex hx-gap-4">
+        {{ .Content }}
+      </div>
+</div>
+{{ partial "components/last-updated.html" . }}
+{{ partial "components/pager.html" . }}
+{{ partial "components/comments.html" . }}
+</main>
+</article>
+</div>
+{{ end }}
