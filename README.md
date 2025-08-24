@@ -16,8 +16,7 @@ git submodule update --init --recursive
 
 Next, run the following commands to install needed packages & build the site.
 ```
-npm install
-npm run build
+npm install && npm run build
 ```
 
 If you want to run a preview server, run the following:
