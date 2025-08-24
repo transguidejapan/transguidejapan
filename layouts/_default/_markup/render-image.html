@@ -19,9 +19,9 @@
 
 {{- with .Title -}}
 <figure>
-  <img src="{{ $dest | safeURL }}" title="{{ . }}" alt="{{ $alt }}" {{ if $lazyLoading }}loading="lazy" {{ end }} class="hx-rounded-lg" />
+  <img src="{{ $dest | safeURL }}" title="{{ . }}" alt="{{ $alt }}" {{ if $lazyLoading }}loading="lazy" {{ end }} class="rounded-lg mt-5 mb-5" />
   <figcaption>{{ . }}</figcaption>
 </figure>
 {{- else -}}
-<img src="{{ $dest | safeURL }}" alt="{{ $alt }}" {{ if $lazyLoading }}loading="lazy" {{ end }} class="hx-rounded-lg" />
+<img src="{{ $dest | safeURL }}" alt="{{ $alt }}" {{ if $lazyLoading }}loading="lazy" {{ end }} class="hx-rounded-lg " />
 {{- end -}}

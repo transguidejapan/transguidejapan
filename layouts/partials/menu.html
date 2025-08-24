@@ -3,7 +3,8 @@
     class="w-128 theme-bg h-full pt-34 pl-13 text-2xl font-bold pointer-events-none -left-10 relative transition-all opacity-0 duration-750 closed">
 
     <!-- Close button -->
-    <div id="close" class="absolute right-5 top-10 w-10 h-10 text-center cursor-pointer"><i class="fa-solid fa-x"></i></div>
+    <div id="close" class="absolute right-5 top-10 w-10 h-10 text-center cursor-pointer"><i class="fa-solid fa-x"></i>
+    </div>
     <!-- Close button end -->
 
     <!-- Resources link list -->
@@ -14,7 +15,8 @@
         <div class="mt-2 ml-2">
           <ul>
             {{ range $index:=.Site.Params.menu.resources }}
-            <li class="text-lg tracking-wide"><a href="">{{$index}}</a></li>
+            <li class="text-lg tracking-wide hover:underline transition-all pl-0 hover:pl-3"><a href="">{{$index}}</a>
+            </li>
             {{end}}
           </ul>
         </div>
