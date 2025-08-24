@@ -2,8 +2,12 @@ from obsidian_to_hugo import ObsidianToHugo
 
 
 def filter_file(file_contents: str, file_path: str) -> bool:
+    excluded_files = [
+        "scripts/",
+        "templates/"
+    ]
     # do something with the file path and contents
-    if "_index.md" not in file_path:
+    if excluded_files not in file_path:
         return True  # copy file
     else:
         return False  # skip file
