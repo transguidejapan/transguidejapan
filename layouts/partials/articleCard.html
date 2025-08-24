@@ -1,10 +1,10 @@
-<a class="hx-flex hx-gap-4 hx-justify-start not-prose hover:hx-opacity-75" href="{{.Page.Permalink}}">
-  <img class="  hx-mr-2" src="/images/icon.png">
+<a class="hx-flex hx-gap-4 hx-justify-start not-prose hover:hx-opacity-75 min-h-30" href="{{.Page.Permalink}}">
+  <img class="  hx-mr-2 min-h-full aspect-box rounded-full" src="/images/Icon.png">
   <div>
     <h2 class="not-prose hx-text-2xl">{{.Page.Title}}</h2>
-    <span>{{.Page.Description}}</span>
+    <span class="text-base line-clamp-1">{{.Page.Description}}</span>
     <ul class="not-prose hx-flex hx-gap-4">
-      {{partial "languageCard.html" (dict "context" . "lang" "en" )}}
+      {{partial "languageCard.html" (dict "context" . "lang" .Page.Lang )}}
       {{ range .Page.Translations }}
       {{partial "languageCard.html" (dict "context" . "lang" .Language )}}
       {{end}}

@@ -1,0 +1,8 @@
+<div class="flex flex-row gap-2">
+  {{ if .Paginator.HasPrev }}
+  <a class="text-base text-theme no-underline" href="{{ .Paginator.Prev.URL }}">← Newer Posts</a>
+  {{ end }}
+  {{ if .Paginator.HasNext }}
+  <a class="text-base  text-theme no-underline" href="{{ .Paginator.Next.URL }}">Older Posts →</a>
+  {{ end }}
+</div>
