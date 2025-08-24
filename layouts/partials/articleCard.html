@@ -1,0 +1,13 @@
+<a class="hx-flex hx-gap-4 hx-justify-start not-prose hover:hx-opacity-75" href="{{.Page.Permalink}}">
+  <img class="  hx-mr-2" src="/images/icon.png">
+  <div>
+    <h2 class="not-prose hx-text-2xl">{{.Page.Title}}</h2>
+    <span>{{.Page.Description}}</span>
+    <ul class="not-prose hx-flex hx-gap-4">
+      {{partial "languageCard.html" (dict "context" . "lang" "en" )}}
+      {{ range .Page.Translations }}
+      {{partial "languageCard.html" (dict "context" . "lang" .Language )}}
+      {{end}}
+    </ul>
+  </div>
+</a>
