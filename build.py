@@ -7,8 +7,9 @@ def filter_file(file_contents: str, file_path: str) -> bool:
         "templates/"
     ]
     # do something with the file path and contents
-    if excluded_files not in file_path:
-        return True  # copy file
+    for file_name in excluded_files:
+        if file_name not in file_path:
+            return True  # copy file
     else:
         return False  # skip file
 
