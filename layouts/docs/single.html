@@ -24,16 +24,12 @@
       <div class="mt-3 hx-flex hx-gap-4 hx-mb-8">
         {{if .Params.tags}}
         {{range .Params.tags}}
-        <a href="/tags/{{ . }}" class="md:text-2xl text-xl hx-font-semibold " >#{{.}}</a>
+        <a href = "/tags/{{ . }}">
+          <span class="md:text-xl text-l" >#{{.}}</span>
+        </a>
         {{end}}
         {{end}}
       </div>
-
-      {{if .Description}}
-      <h3 class="md:!text-xl !text-base">
-        {{.Description}}
-      </h3>
-      {{end}}
 
       <div class="content md:text-xl text-base hx-flex-col hx-flex hx-gap-4">
         {{ .Content }}

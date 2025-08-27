@@ -4,6 +4,7 @@ import fs from 'fs';
 const config : any = {
     hugoCommand: 'hugo',
     sourceDir: 'submodules/tgj-vault', // TODO: Pull submodule if not present
+    //sourceDir: '../tgj-articles/vault/',
     destDir: 'content', // Hugo's default content directory
 };
 
@@ -68,7 +69,6 @@ function convertObsidianVault(): void {
 
     // Post-process markdown files to convert date to ISO 8601 format
     fs.readdirSync(destDir, { recursive: true }).forEach(file => {
-        console.log(`Post-processing file: ${file}`);
         if (file.endsWith('.md')) {
             const filePath = `${destDir}/${file}`;
             let content = fs.readFileSync(filePath, 'utf-8');
@@ -83,7 +83,6 @@ function convertObsidianVault(): void {
                 return;
             }
             const convertedDate = new Date(date[0].trim()).toISOString();
-            console.log('Date: ', date);
             content = content.replace(dateRegex, ` ${convertedDate}`);
             fs.writeFileSync(filePath, content, 'utf-8');
         }
