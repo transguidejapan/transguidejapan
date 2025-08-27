@@ -1,12 +1,17 @@
-
 @import "tailwindcss";
 
-.dark .theme-bg
-{
-  background-color: rgb(17 17 17 / var(--tw-bg-opacity)); 
+.dark .theme-bg {
+  background-color: rgb(17 17 17 / var(--tw-bg-opacity));
 }
 
-.theme-bg
-{
-  background-color: white; 
+.theme-bg {
+  background-color: white;
+}
+
+.dark .text-theme {
+  color: white;
+}
+
+.text-theme {
+  color: black;
 }

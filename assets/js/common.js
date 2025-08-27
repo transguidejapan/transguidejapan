@@ -22,7 +22,11 @@ function initMenu()
    const open=document.getElementById("open")
   if(!menu||!close||!open)
     {
-      console.warn("Some or all menu elements are missing.");
+      console.warn(`Some or all menu elements are missing.\n
+        menu = ${menu!=null}\n
+        close = ${close!=null}\n
+        open = ${open!=null}\n
+        `);
       return;
     }
     const openedClass=[ "opacity-100", "left-0","opened","pointer-events-auto" ];
