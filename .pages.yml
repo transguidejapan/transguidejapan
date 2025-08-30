@@ -22,6 +22,8 @@ content:
         label: Category
         type: select
         options:
+          multiple: false
+          creatable: false
           values: 
             - name: beauty
               label: Beauty
@@ -38,7 +40,6 @@ content:
         type: select
         required: true
         options:
-          creatable: true
           multiple: true
           values: 
             - name: kanto
