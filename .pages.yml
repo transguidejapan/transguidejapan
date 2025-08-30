@@ -1,0 +1,118 @@
+media:
+  input: static/images
+  output: public
+content:
+  - name: resources
+    label: Resources
+    path: content/docs/resources
+    type: collection
+    fields:
+      - name: author
+        label: Author
+        type: text
+        required: true
+      - name: title
+        label: Title
+        type: text
+        required: true
+      - name: description
+        label: Description
+        type: text
+      - name: category
+        label: Category
+        type: select
+        options:
+          values: 
+            - name: beauty
+              label: Beauty
+            - name: medical
+              label: Medical
+            - name: mental
+              label: Mental Health
+            - name: social
+              label: Social
+            - name: other
+              label: Other
+      - name: region
+        label: Region
+        type: select
+        required: true
+        options:
+          creatable: true
+          multiple: true
+          values: 
+            - name: kanto
+              label: Kantō
+            - name: kansai
+              label: Kansai
+            - name: kyushu
+              label: Kyūshū
+            - name: hokkaido
+              label: Hokkaidō
+            - name: tohoku
+              label: Tōhoku
+            - name: chubu
+              label: Chūbu
+            - name: chugoku
+              label: Chūgoku
+            - name: shikoku
+              label: Shikoku
+            - name: okinawa
+              label: Okinawa
+      - name: location
+        label: Location
+        type: text
+        required: true
+      - name: tags
+        label: Tags
+        type: select
+        options:
+          creatable: true
+          multiple: true
+          values: [ Hair Removal, Electrolysis, Laser, IPL, HRT, Surgical, Counseling, Psychiatric, General ]
+      - name: lang
+        label: Languages Supported
+        type: select
+        options:
+          creatable: true
+          multiple: true
+          values: # TODO: Add support for all ISO codes
+            - name: en
+              label: English
+            - name: ja
+              label: 日本語
+            - name: zh
+              label: Chinese
+            - name: kr
+              label: Korean
+      - name: site
+        label: Website
+        type: object
+        fields:
+          - name: url
+            label: URL
+            type: text
+            required: true
+          - name: lang
+            label: Language
+            type: select
+            required: true
+            options:
+              values:
+                - name: en
+                  label: English
+                - name: ja
+                  label: 日本語
+                - name: zh
+                  label: Chinese
+                - name: kr
+                  label: Korean
+      - name: map
+        label: Map
+        type: text
+      - name: body
+        label: Page Content
+        type: rich-text
+        options:
+          path: static/images
+        required: true
