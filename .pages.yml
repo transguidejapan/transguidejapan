@@ -40,6 +40,7 @@ content:
         type: select
         required: true
         options:
+          creatable: true
           multiple: true
           values: 
             - name: kanto
@@ -62,7 +63,7 @@ content:
               label: Okinawa
       - name: location
         label: Location
-        type: text
+        type: string
         required: true
       - name: tags
         label: Tags
@@ -92,7 +93,7 @@ content:
         fields:
           - name: url
             label: URL
-            type: text
+            type: string
             required: true
           - name: lang
             label: Language
@@ -110,7 +111,7 @@ content:
                   label: Korean
       - name: map
         label: Map
-        type: text
+        type: string
       - name: body
         label: Page Content
         type: rich-text
