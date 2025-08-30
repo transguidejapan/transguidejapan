@@ -9,11 +9,11 @@ content:
     fields:
       - name: author
         label: Author
-        type: text
+        type: string
         required: true
       - name: title
         label: Title
-        type: text
+        type: string
         required: true
       - name: description
         label: Description
