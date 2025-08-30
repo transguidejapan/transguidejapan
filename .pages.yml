@@ -94,11 +94,9 @@ content:
           - name: url
             label: URL
             type: string
-            required: true
           - name: lang
             label: Language
             type: select
-            required: true
             options:
               values:
                 - name: en
