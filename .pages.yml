@@ -25,15 +25,15 @@ content:
           multiple: false
           creatable: false
           values: 
-            - name: beauty
+            - value: beauty
               label: Beauty
-            - name: medical
+            - value: medical
               label: Medical
-            - name: mental
+            - value: mental
               label: Mental Health
-            - name: social
+            - value: social
               label: Social
-            - name: other
+            - value: other
               label: Other
       - name: region
         label: Region
@@ -43,23 +43,23 @@ content:
           creatable: true
           multiple: true
           values: 
-            - name: kanto
+            - value: kanto
               label: Kantō
-            - name: kansai
+            - value: kansai
               label: Kansai
-            - name: kyushu
+            - value: kyushu
               label: Kyūshū
-            - name: hokkaido
+            - value: hokkaido
               label: Hokkaidō
-            - name: tohoku
+            - value: tohoku
               label: Tōhoku
-            - name: chubu
+            - value: chubu
               label: Chūbu
-            - name: chugoku
+            - value: chugoku
               label: Chūgoku
-            - name: shikoku
+            - value: shikoku
               label: Shikoku
-            - name: okinawa
+            - value: okinawa
               label: Okinawa
       - name: location
         label: Location
@@ -79,13 +79,13 @@ content:
           creatable: true
           multiple: true
           values: # TODO: Add support for all ISO codes
-            - name: en
+            - value: en
               label: English
-            - name: ja
+            - value: ja
               label: 日本語
-            - name: zh
+            - value: zh
               label: Chinese
-            - name: kr
+            - value: kr
               label: Korean
       - name: site
         label: Website
@@ -99,13 +99,13 @@ content:
             type: select
             options:
               values:
-                - name: en
+                - value: en
                   label: English
-                - name: ja
+                - value: ja
                   label: 日本語
-                - name: zh
+                - value: zh
                   label: Chinese
-                - name: kr
+                - value: kr
                   label: Korean
       - name: map
         label: Map
