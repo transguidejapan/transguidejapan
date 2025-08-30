@@ -2,5 +2,5 @@
 	path = themes/hextra
 	url = https://github.com/imfing/hextra.git
 [submodule "submodules/tgj-vault"]
-	path = submodules/tgj-vault
-	url = ../tgj-vault.git
+	path = content
+	url = ../site-content.git
